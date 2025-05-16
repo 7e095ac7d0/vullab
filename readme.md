@@ -4,18 +4,7 @@
 
 This repository is related to the paper "*Building a Labeled Smart Contract Dataset for Evaluating Vulnerability Detection Tools’ Effectiveness*", currently under evalution for publishing in SBSeg2025's Tools Session. The work's abstract goes as follows:
 
-*In recent years, surveys on vulnerability detection tools for Solidity-
-based smart contracts have shown that many of them display poor capabilities.
-One of the causes for such deficiencies is the absence of good-quality bench-
-marking datasets where bugs typically found in smart contracts are accurately
-labeled. To help tackle this issue, we propose VulLab, a framework incorpora-
-ting state-of-the-art tools that efficiently insert vulnerabilities in collected con-
-tracts. In addition, it also facilitates the execution of several analysis tools
-against the generated dataset, compiling the results graphically for easy inspec-
-tion. By improving automation, the proposed solution should become a powerful
-ally for smart contract developers and auditors, contributing to the security of
-programmable blockchain platforms. VulLab’s is open-source and is available
-anonymized at github-address.*
+*In recent years, surveys on vulnerability detection tools for Solidity-based smart contracts have shown that many of them display poor capabilities. One of the causes for such deficiencies is the absence of good-quality bench-marking datasets where bugs typically found in smart contracts are accurately labeled. To help tackle this issue, we propose VulLab, a framework incorporating state-of-the-art tools that efficiently insert vulnerabilities in collected contracts. In addition, it also facilitates the execution of several analysis tools against the generated dataset, compiling the results graphically for easy inspection. By improving automation, the proposed solution should become a powerful ally for smart contract developers and auditors, contributing to the security of programmable blockchain platforms. VulLab’s is open-source and is available https://github.com/7e095ac7d0/vullab.*
 
 ## Table of contents
 - [VulLab](#vullab)
@@ -85,7 +74,7 @@ We offer two installation alternatives: one requiring `miniconda`, a free envior
 For either choice, the first step is to clone this repository. To achieve that execute the following line in the directory you wish VulLab to be located
 
 ```
-git clone github-address
+git clone https://github.com/7e095ac7d0/vullab.git
 ```
 
 Then enter VulLab's working directory by executing

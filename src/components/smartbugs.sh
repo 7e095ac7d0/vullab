@@ -1,19 +1,19 @@
 #!bin/bash
 
 ROOT_DIR=$1
-ANALISIS_QNT=$2
+ANALYSIS_QNT=$2
 THREADS=$3
 CPUS=$(( 100000 * $4 ))
 
 # Filter contracts by line count
 echo "[+] Collecting dataset for analysis..."
 for dir in $(ls -d $ROOT_DIR/dataset/baked_dataset/*); do
-	if [ "$ANALISIS_QNT" == "all" ];  then
+	if [ "$ANALYSIS_QNT" == "all" ];  then
 		# Get all contracts
 		contracts=$(cat $dir/line_count.txt | awk '{print $1}')
 	else
-		# Get only the largest $ANALISIS_QNT contracts
-		contracts=$(cat $dir/line_count.txt | head -$ANALISIS_QNT | awk '{print $1}')
+		# Get only the largest $ANALYSIS_QNT contracts
+		contracts=$(cat $dir/line_count.txt | head -$ANALYSIS_QNT | awk '{print $1}')
 	fi
 
 	# Ensure no directory with the same name exists
@@ -28,7 +28,7 @@ for dir in $(ls -d $ROOT_DIR/dataset/baked_dataset/*); do
 	done
 done
 
-# Analyse contracts in the execution directory
+# Analyze contracts in the execution directory
 echo -e "[+] Executing \e[32mSmartBugs\e[0m on baked dataset..."
 for dir in $(ls $ROOT_DIR/dataset/baked_dataset); do
 	echo -e "[i] Currently working on \e[32m$dir\e[0m"

@@ -1,11 +1,11 @@
 #!/bin/bash
 
 ROOT_DIR=$1
-ANALISIS_QNT=$2
+ANALYSIS_QNT=$2
 MODEL=$3
 
 if [[ ! -n "$OPENAI_API_KEY" ]]; then
- 	echo -e "\e[31m[!] No chatGPT API key detected! Make sure you have a key saved as an enviornment variable! For more information please check the openAI API platform documentation.\e[0m"
+ 	echo -e "\e[31m[!] No chatGPT API key detected! Make sure you have a key saved as an environment variable! For more information please check the openAI API platform documentation.\e[0m"
 	exit 1
 fi
 
@@ -19,12 +19,12 @@ fi
 # Filter contracts by line count
 echo "[+] Collecting dataset for analysis..."
 for dir in $(ls -d $ROOT_DIR/dataset/baked_dataset/*); do
-	if [ "$ANALISIS_QNT" == "all" ];  then
+	if [ "$ANALYSIS_QNT" == "all" ];  then
 		# Get all contracts
 		contracts=$(cat $dir/line_count.txt | awk '{print $1}')
 	else
-		# Get only the largest $ANALISIS_QNT contracts
-		contracts=$(cat $dir/line_count.txt | head -$ANALISIS_QNT | awk '{print $1}')
+		# Get only the largest $ANALYSIS_QNT contracts
+		contracts=$(cat $dir/line_count.txt | head -$ANALYSIS_QNT | awk '{print $1}')
 	fi
 
 	# Ensure no directory with the same name exists

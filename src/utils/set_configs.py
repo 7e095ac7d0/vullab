@@ -14,7 +14,7 @@ def huanggai_config(root_dir, timeout):
                 json.dump(data, write_file, indent=4)
             
     except Exception as e:
-        print(colored(f"An error occurred while setting confgurations: {e}", "red"))   
+        print(colored(f"An error occurred while setting configurations: {e}", "red"))   
         
 if __name__ == "__main__":
     root_dir = sys.argv[1]

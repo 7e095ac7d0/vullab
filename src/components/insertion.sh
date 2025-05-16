@@ -95,6 +95,6 @@ for tool in "${TOOLS[@]}"; do
 		organize_solidifi_outputs
 	fi
 done
-python3 $ROOT_DIR/src/utils/retify_labels.py $ROOT_DIR
+python3 $ROOT_DIR/src/utils/rectify_labels.py $ROOT_DIR
 bash $ROOT_DIR/src/utils/line_count.sh $ROOT_DIR/dataset/baked_dataset
 echo -e "[+] Directories build"

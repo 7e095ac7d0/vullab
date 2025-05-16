@@ -87,7 +87,7 @@ if __name__ == "__main__":
         with open(file, 'r') as mapping:
             SCWE_mapping = {**SCWE_mapping, **json.load(mapping)}
 
-    # Assert contracts and labels to the standart
+    # Assert contracts and labels to the standard
     contracts = glob.glob(f'{root_dir}/dataset/baked_dataset/*/smart_contracts/*.sol')
     labels = glob.glob(f'{root_dir}/dataset/baked_dataset/*/labels/*')
     # Rename contracts to <address>.sol

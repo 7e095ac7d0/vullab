@@ -11,8 +11,8 @@ def replace_values(tool_config, root_dir, vulnerability_name):
 
     return tool_config
 
-def build_command(vulnerability_name, proccess, cpus, contract, root_dir, tool_config):
-    container_name = f'process{proccess}'
+def build_command(vulnerability_name, process, cpus, contract, root_dir, tool_config):
+    container_name = f'process{process}'
     renamed_tool_config = replace_values(tool_config, root_dir, vulnerability_name)
     
     volumes_cmd = []
@@ -74,7 +74,7 @@ def run_container(root_dir, docker_command, tool_config):
         return False, f'[i] Finished process{process_id[0]}'
   
     except Exception as e:
-        return True, f'[i] An error occured in proccess{process_id[0]}: {e}'
+        return True, f'[i] An error occurred in process{process_id[0]}: {e}'
 
 def move_cursor_up(n):
     sys.stdout.write(f"\033[{n}A")

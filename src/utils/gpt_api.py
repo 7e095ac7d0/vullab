@@ -3,10 +3,10 @@ from openai import OpenAI
 from termcolor import colored
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 
-# This function, in case of failure,  will be executed up to 5 times, each with a random exponential delay acording to the configuration
+# This function, in case of failure,  will be executed up to 5 times, each with a random exponential delay according to the configuration
 # This is to handle cases in with the selected model is rate limited, particularly more expensive models
 @retry(wait=wait_random_exponential(min=10, max=60), stop=stop_after_attempt(5))
-def analize_with_gpt(client, model, prompt):
+def analyze_with_gpt(client, model, prompt):
     # Definition of the system prompt
     system_prompt = '''
     You are a state-of-the-art vulnerability detection tool for Ethereum smart contracts.
@@ -31,7 +31,7 @@ def analize_with_gpt(client, model, prompt):
     }
 
     Each of the vulnerabilities you found should be added to the "results" list, and should follow the template below. 
-    You should add all vunlnerabilities you found, even when you detect a same vulnerability type in several different parts of the contract.
+    You should add all vulnerabilities you found, even when you detect a same vulnerability type in several different parts of the contract.
     Everything that is between tags << and >> represents a value that you should fill according to the vulnerabilities you detected:
 
     {
@@ -57,7 +57,7 @@ def analize_with_gpt(client, model, prompt):
         "ruleId": "<<SCWE code>>"
     }
     
-    In the "rules" list you should list every unique vulnerability rule you found analysing the contract. That is, every unique vulnerability ruleId you found should be represented only once in this list, regardless of how many of the same kind of vulnerability you found.
+    In the "rules" list you should list every unique vulnerability rule you found analyzing the contract. That is, every unique vulnerability ruleId you found should be represented only once in this list, regardless of how many of the same kind of vulnerability you found.
     For each of such entries you should follow the following template, in which everything that is between tags << and >> represents a value that you should fill according to the vulnerabilities you detected:
 
     {
@@ -212,10 +212,10 @@ if __name__ == "__main__":
     # Analyse the contract until a valid response is obtained
     while True:
         # Get response from the GPT
-        response = analize_with_gpt(client, model, smart_contract_src)
+        response = analyze_with_gpt(client, model, smart_contract_src)
         report = response.choices[0].message.content
         
-        # Asser that the result is in the correct format
+        # Assert that the result is in the correct format
         if assert_sarif_format(report, sarif_schema):
             break
 

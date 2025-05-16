@@ -110,13 +110,13 @@ def consolidate_results(baked_dict, root_dir):
 def plot_results(data, root_dir):
     vulnerabilities = list(sorted(data.keys()))
     tools = [tool for tool in next(iter(data.values())) if tool != "total"]
-    detection_porcentages = {tool: [] for tool in tools}
+    detection_percentages = {tool: [] for tool in tools}
 
     for vul in vulnerabilities:
         total = data[vul]["total"]
         for tool in tools:
             detection_percentage = (data[vul][tool] / total) * 100
-            detection_porcentages[tool].append(detection_percentage)
+            detection_percentages[tool].append(detection_percentage)
     
     x = np.arange(len(vulnerabilities))  # X positions for bars
     width = 0.1  # Width of bars
@@ -124,7 +124,7 @@ def plot_results(data, root_dir):
     fig, ax = plt.subplots(figsize=(8, 6))
 
     for i, tool in enumerate(tools):
-        ax.bar(x + i * width, detection_porcentages[tool], width, label=tool)
+        ax.bar(x + i * width, detection_percentages[tool], width, label=tool)
 
     # Setting Y-axis values to 0% to 100%
     ax.set_ylim(0, 100)  # Y-axis now always goes from 0 to 100%

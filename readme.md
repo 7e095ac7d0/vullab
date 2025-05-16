@@ -20,6 +20,7 @@ This repository is related to the paper "*Building a Labeled Smart Contract Data
   - [Test Datasets](#test-datasets)
     - [Smoke test](#smoke-test)
     - [Complete test](#complete-test)
+  - [Demo (In portuguese)](#demo-in-portuguese)
 
 ## Introduction
 VulLab is a vulnerability detection tools validation framework specialized in Solidity-based smart contracts that combines three important state-of-the-art works. Its implementation brings together bug insertion capabilities with the automatic execution of detection techniques. By providing means to seamlesly obtain a benchmark capable dataset of labeled contracts from any sizeble collection of smart contracts we hope to help developers to more easily test their newly developed analysis solutions with previously presented detection tools. 
@@ -178,5 +179,9 @@ The graph output should be as follows:
 <p align="center">
   <img src="docs/images/raw_dataset_50_results.png" alt="Sublime's custom image"/>
 </p>
+
+## Demo (In portuguese)
+
+A video with a demo of Vullab using the `raw_datset_50` is accessible as an [unlisted video](https://www.youtube.com/watch?v=IMw2kVApL3g).
 
 </div>
